@@ -14,4 +14,8 @@ Gem::Specification.new do |gem|
   gem.name          = 'hovercraft'
   gem.require_paths = ['lib']
   gem.version       = Hovercraft::VERSION
+
+  gem.add_development_dependency 'rspec'
+  gem.add_development_dependency 'pry'
+  gem.add_development_dependency 'rake'
 end
