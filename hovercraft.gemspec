@@ -2,16 +2,16 @@
 require File.expand_path('../lib/hovercraft/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.authors       = ["vanstee"]
-  gem.email         = ["vanstee@highgroove.com"]
+  gem.authors       = ['vanstee']
+  gem.email         = ['vanstee@highgroove.com']
   gem.description   = %q{TODO: Write a gem description}
   gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.homepage      = ''
 
-  gem.files         = `git ls-files`.split($\)
-  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
-  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.name          = "hovercraft"
-  gem.require_paths = ["lib"]
+  gem.files         = `git ls-files`.split("\n")
+  gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  gem.test_files    = `git ls-files -- spec/*`.split("\n")
+  gem.name          = 'hovercraft'
+  gem.require_paths = ['lib']
   gem.version       = Hovercraft::VERSION
 end
