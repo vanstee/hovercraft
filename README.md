@@ -1,26 +1,27 @@
 # Hovercraft
 
-TODO: Write a gem description
+Generate a RESTful API from a directory of ActiveRecord models.
 
-## Installation
+## Get Up and Running
 
-Add this line to your application's Gemfile:
+1. Throw this in your Gemfile:
 
-    gem 'hovercraft'
+   `gem 'hovercraft'`
 
-And then execute:
+2. Put your ActiveRecord models in `models/` (make sure the file names
+   are the same as the class names).
 
-    $ bundle
+3. Create a rackup file that generates the application:
 
-Or install it yourself as:
+   ```ruby
+   run Hovercraft::Server.new
+   ``` 
 
-    $ gem install hovercraft
+4. Run the application like normal:
 
-## Usage
+   `bundle exec rackup`
 
-TODO: Write usage instructions here
-
-## Contributing
+## Give Back
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)

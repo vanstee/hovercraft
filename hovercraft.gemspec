@@ -4,8 +4,12 @@ require File.expand_path('../lib/hovercraft/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ['vanstee']
   gem.email         = ['vanstee@highgroove.com']
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Generate a RESTful API from a directory of ActiveRecord models}
+  gem.summary       = %q{There's a lot of boiler plate code that goes into
+                         creating an API so why not just generate all that code
+                         from the models. Just throw your models in a models
+                         directory and call the server from the rackup file and
+                         you have yourself a perfect API.}
   gem.homepage      = ''
 
   gem.files         = `git ls-files`.split("\n")
