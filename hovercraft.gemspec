@@ -16,6 +16,7 @@ Gem::Specification.new do |gem|
   gem.version       = Hovercraft::VERSION
 
   gem.add_dependency 'sinatra-activerecord'
+  gem.add_dependency 'rack-contrib'
 
   gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'pry'
