@@ -1,6 +1,7 @@
 # Hovercraft
 
 [![Build Status](https://secure.travis-ci.org/vanstee/hovercraft.png)](http://travis-ci.org/vanstee/hovercraft)
+[![Dependency Status](https://gemnasium.com/vanstee/hovercraft.png)](https://gemnasium.com/vanstee/hovercraft)
 
 Generate a RESTful API from a directory of ActiveRecord models.
 
