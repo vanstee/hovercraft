@@ -1,5 +1,7 @@
 # Hovercraft
 
+[![Build Status](https://secure.travis-ci.org/vanstee/hovercraft.png)](http://travis-ci.org/vanstee/hovercraft)
+
 Generate a RESTful API from a directory of ActiveRecord models.
 
 ## Get Up and Running
