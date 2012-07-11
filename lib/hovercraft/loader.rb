@@ -1,6 +1,5 @@
 require 'hovercraft/caller'
 require 'active_support/inflector'
-require 'pry'
 
 module Hovercraft
   class Loader
