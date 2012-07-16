@@ -19,11 +19,14 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
   gem.version       = Hovercraft::VERSION
 
-  gem.add_dependency 'sinatra-activerecord'
-  gem.add_dependency 'rack-contrib'
+  gem.required_ruby_version = '>= 1.9.2'
 
-  gem.add_development_dependency 'rspec'
+  gem.add_dependency 'sinatra-activerecord', '~> 1.1.0'
+  gem.add_dependency 'rack-contrib', '~> 1.1.0'
+  gem.add_dependency 'json', '~> 1.7.3'
+
+  gem.add_development_dependency 'rspec', '~> 2.11.0'
+  gem.add_development_dependency 'rack-test', '~> 0.6.1'
   gem.add_development_dependency 'pry'
   gem.add_development_dependency 'rake'
-  gem.add_development_dependency 'rack-test'
 end

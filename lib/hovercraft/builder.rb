@@ -2,7 +2,7 @@ require 'hovercraft/loader'
 require 'hovercraft/routes'
 require 'hovercraft/helpers'
 require 'sinatra/base'
-require 'rack/contrib'
+require 'rack/contrib/post_body_content_type_parser'
 require 'forwardable'
 
 module Hovercraft
