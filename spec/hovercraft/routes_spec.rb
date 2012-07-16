@@ -1,7 +1,9 @@
-require 'hovercraft/actions'
+require 'hovercraft/routes'
+require 'hovercraft/helpers'
+require 'sinatra'
 require 'rack/test'
 
-describe Hovercraft::Actions do
+describe Hovercraft::Routes do
   include Rack::Test::Methods
 
   let(:application)          { Sinatra.new }
@@ -50,7 +52,8 @@ describe Hovercraft::Actions do
   alias :app :application
 
   before do
-    application.register(Hovercraft::Actions)
+    application.register(Hovercraft::Helpers)
+    application.register(Hovercraft::Routes)
 
     model_class.stub(all: models, create: model, find: model)
   end
@@ -61,7 +64,7 @@ describe Hovercraft::Actions do
     end
 
     it 'generates a GET collection route' do
-      application.routes['GET'][0][0].should == %r{^/employees(?:\.|%2E)([^/?#]+)$}
+      application.routes['GET'][0][0].should == %r{^/employees(\.(?<format>[^\./?#]+))?$}
       application.routes['GET'][0][1].should == ['format']
     end
 
@@ -78,7 +81,7 @@ describe Hovercraft::Actions do
     end
 
     it 'generates a POST collection route' do
-      application.routes['POST'][0][0].should == %r{^/employees(?:\.|%2E)([^/?#]+)$}
+      application.routes['POST'][0][0].should == %r{^/employees(\.(?<format>[^\./?#]+))?$}
       application.routes['POST'][0][1].should == ['format']
     end
 
@@ -103,7 +106,7 @@ describe Hovercraft::Actions do
     end
 
     it 'generates a GET member route' do
-      application.routes['GET'][0][0].should == %r{^/employees/([^/?#]+)(?:\.|%2E)([^/?#]+)$}
+      application.routes['GET'][0][0].should == %r{^/employees/(?<id>[^\./?#]+)(\.(?<format>[^\./?#]+))?$}
       application.routes['GET'][0][1].should == ['id', 'format']
     end
 
@@ -120,7 +123,7 @@ describe Hovercraft::Actions do
     end
 
     it 'generates a PUT member route' do
-      application.routes['PUT'][0][0].should == %r{^/employees/([^/?#]+)(?:\.|%2E)([^/?#]+)$}
+      application.routes['PUT'][0][0].should == %r{^/employees/(?<id>[^\./?#]+)(\.(?<format>[^\./?#]+))?$}
       application.routes['PUT'][0][1].should == ['id', 'format']
     end
 
@@ -145,7 +148,7 @@ describe Hovercraft::Actions do
     end
 
     it 'generates a DELETE member route' do
-      application.routes['DELETE'][0][0].should == %r{^/employees/([^/?#]+)(?:\.|%2E)([^/?#]+)$}
+      application.routes['DELETE'][0][0].should == %r{^/employees/(?<id>[^\./?#]+)(\.(?<format>[^\./?#]+))?$}
       application.routes['DELETE'][0][1].should == ['id', 'format']
     end
 

@@ -33,8 +33,14 @@ describe Hovercraft::Builder do
   describe '#configure' do
     let(:application) { stub(register: nil, use: nil) }
 
+    it 'registers the helper methods' do
+      application.should_receive(:register).with(Hovercraft::Helpers)
+
+      subject.configure(application)
+    end
+
     it 'registers the methods to generate actions' do
-      application.should_receive(:register).with(Hovercraft::Actions)
+      application.should_receive(:register).with(Hovercraft::Routes)
 
       subject.configure(application)
     end

@@ -1,5 +1,6 @@
 require 'hovercraft/loader'
-require 'hovercraft/actions'
+require 'hovercraft/routes'
+require 'hovercraft/helpers'
 require 'sinatra/base'
 require 'rack/contrib'
 require 'forwardable'
@@ -22,7 +23,8 @@ module Hovercraft
     end
 
     def configure(application)
-      application.register(Hovercraft::Actions)
+      application.register(Hovercraft::Helpers)
+      application.register(Hovercraft::Routes)
       application.use(Rack::PostBodyContentTypeParser)
       application
     end
