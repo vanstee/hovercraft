@@ -4,6 +4,14 @@ module Hovercraft
       application.helpers(Hovercraft::Helpers)
     end
 
+    def authenticate_with_warden
+      warden.authenticate! if warden
+    end
+
+    def warden
+      env.fetch('warden')
+    end
+
     def respond_with(content)
       if content.respond_to?(format_method_name)
         content.send(format_method_name)

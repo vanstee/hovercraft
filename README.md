@@ -92,6 +92,48 @@ extensible at this point. Consider it a proof of concept.
    curl -X DELETE http://localhost:9292/employees/1.json
    ```
 
+## Authentication
+
+1. Include `warden` in your Gemfile:
+
+   ```ruby
+   gem 'warden'
+   ```
+
+2. Use rack builder to add warden strategies to your rackup file:
+
+   ```ruby
+   # config.ru
+
+   require 'bundler'
+   Bundler.require
+
+   application = Rack::Builder.new do
+     use Rack::Session::Cookie, secret: '...'
+
+     Warden::Strategies.add :password do
+       def valid?
+         ...
+       end
+
+       def authenticate
+         ...
+       end
+     end
+
+     use Warden::Manager do |manager|
+       manager.default_strategies :password
+       manager.failure_app = ...
+     end
+
+     run Hovercraft::Server
+   end
+
+   run application
+   ```
+
+See the [warden project](https://github.com/hassox/warden/) for more in-depth examples or help troubleshooting.
+
 ## Give Back
 
 1. Fork it:

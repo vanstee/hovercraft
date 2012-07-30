@@ -13,12 +13,23 @@ describe Hovercraft::Builder do
   end
 
   describe '#application' do
+    before do
+      Hovercraft::Filters.stub(public_instance_methods: [])
+      Hovercraft::Routes.stub(public_instance_methods: [])
+    end
+
     it 'creates a sinatra application' do
       subject.application.ancestors.should include(Sinatra::Base)
     end
 
     it 'configures the application' do
       subject.should_receive(:configure)
+
+      subject.application
+    end
+
+    it 'generates filters for the application' do
+      subject.should_receive(:generate_filters)
 
       subject.application
     end
@@ -39,7 +50,13 @@ describe Hovercraft::Builder do
       subject.configure(application)
     end
 
-    it 'registers the methods to generate actions' do
+    it 'registers the methods to generate filters' do
+      application.should_receive(:register).with(Hovercraft::Filters)
+
+      subject.configure(application)
+    end
+
+    it 'registers the methods to generate routes' do
       application.should_receive(:register).with(Hovercraft::Routes)
 
       subject.configure(application)

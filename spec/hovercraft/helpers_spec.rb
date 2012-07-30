@@ -15,6 +15,31 @@ describe Hovercraft::Helpers do
     end
   end
 
+  describe '#authenticate_with_warden' do
+    let(:warden) { stub(authenticate!: nil) }
+
+    before { subject.stub(warden: warden) }
+
+    it 'uses warden to authenticate' do
+      warden.should_receive(:authenticate!)
+
+      subject.authenticate_with_warden
+    end
+  end
+
+  describe '#warden' do
+    let(:warden) { stub }
+    let(:env) { stub }
+
+    before { subject.stub(env: env) }
+
+    it 'finds the warden instance in the current session' do
+      env.stub(:fetch).with('warden') { warden }
+
+      subject.warden
+    end
+  end
+
   describe '#respond_with' do
     it 'serializes the content to the preferred format' do
       subject.stub(format: :json)
