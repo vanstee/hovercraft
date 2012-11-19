@@ -25,7 +25,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'rack-contrib', '~> 1.1.0'
   gem.add_dependency 'json', '~> 1.7.3'
 
-  gem.add_development_dependency 'rspec', '~> 2.11.0'
+  gem.add_development_dependency 'rspec', '~> 2.12.0'
   gem.add_development_dependency 'rack-test', '~> 0.6.1'
   gem.add_development_dependency 'pry'
   gem.add_development_dependency 'rake'
