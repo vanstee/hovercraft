@@ -21,7 +21,7 @@ describe Hovercraft::Filters do
     end
 
     it 'generates a global filter' do
-      application.filters[:before][0][0] == //
+      application.filters[:before][0][0].should == //
     end
 
     it 'authenticates a request' do

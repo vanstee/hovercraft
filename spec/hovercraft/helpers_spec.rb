@@ -29,14 +29,14 @@ describe Hovercraft::Helpers do
 
   describe '#warden' do
     let(:warden) { stub }
-    let(:env) { stub }
+    let(:env) { {} }
 
     before { subject.stub(env: env) }
 
     it 'finds the warden instance in the current session' do
-      env.stub(:fetch).with('warden') { warden }
+      env['warden'] = warden
 
-      subject.warden
+      subject.warden.should == warden
     end
   end
 
