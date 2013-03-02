@@ -21,12 +21,12 @@ Gem::Specification.new do |gem|
 
   gem.required_ruby_version = '>= 1.9.2'
 
-  gem.add_dependency 'sinatra-activerecord', '~> 1.2.1'
+  gem.add_dependency 'sinatra-activerecord', '~> 1.2.2'
   gem.add_dependency 'rack-contrib', '~> 1.1.0'
-  gem.add_dependency 'json', '~> 1.7.3'
+  gem.add_dependency 'json', '~> 1.7.7'
 
-  gem.add_development_dependency 'rspec', '~> 2.12.0'
-  gem.add_development_dependency 'rack-test', '~> 0.6.1'
+  gem.add_development_dependency 'rspec', '~> 2.13.0'
+  gem.add_development_dependency 'rack-test', '~> 0.6.2'
   gem.add_development_dependency 'pry'
   gem.add_development_dependency 'rake'
 end
